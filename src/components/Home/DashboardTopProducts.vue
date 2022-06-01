@@ -26,7 +26,8 @@
               :style="{ width: `${col}%` }"
               :title="`Orders: ${item.orders.length},  ${col.toFixed(2)}%`"
             ></div>
-            <span v-else>{{ col }}</span>
+            <span v-else-if="idx !== 'productVolume'">{{ col }}</span>
+            <span v-else>{{ col }} €</span>
           </td>
         </tr>
       </tbody>
