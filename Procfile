@@ -1,1 +1,1 @@
-web: vue-cli-service build
+web: node server.js
