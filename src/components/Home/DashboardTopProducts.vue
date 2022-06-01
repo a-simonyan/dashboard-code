@@ -27,7 +27,7 @@
               :title="`Orders: ${item.orders.length},  ${col.toFixed(2)}%`"
             ></div>
             <span v-else-if="idx !== 'productVolume'">{{ col }}</span>
-            <span v-else>{{ col }} €</span>
+            <span v-else>{{ formatPrice(col.toFixed(2)) }} €</span>
           </td>
         </tr>
       </tbody>
@@ -82,6 +82,12 @@ export default {
       const obj = JSON.parse(JSON.stringify(item));
       delete obj.orders;
       return obj;
+    },
+    formatPrice(price) {
+      return price
+        .toString()
+        .replace(".", ",")
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
   },
 };
