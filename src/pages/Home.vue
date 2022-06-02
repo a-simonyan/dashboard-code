@@ -83,6 +83,7 @@ export default {
       this.getTargetsData();
     },
     onDateChange(date) {
+      console.log(date);
       this.currentSelectedDate = dayjs(new Date(date))
         .format("MMMM YYYY")
         .toString();
