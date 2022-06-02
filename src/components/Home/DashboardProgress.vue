@@ -51,7 +51,7 @@ export default {
     currentMonthTarget() {
       if (this.getTargetSuccessData) {
         return this.getTargetSuccessData.values.find((el) =>
-          el.includes(moment(new Date(this.date)).format("MMMM"))
+          el.includes(moment(this.date).format("MMMM"))
         )[1];
       } else return "";
     },

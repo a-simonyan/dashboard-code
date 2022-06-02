@@ -33,7 +33,7 @@ export default {
     return {
       refreshReheaderingSeconds: 60,
       reheaderingSecondsInterval: null,
-      currentDashboardDate: new Date(),
+      currentDashboardDate: new Date().toISOString(),
     };
   },
   computed: {

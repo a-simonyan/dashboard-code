@@ -58,7 +58,7 @@ export default {
   },
   data() {
     return {
-      currentSelectedDate: moment(new Date()).format("MMMM YYYY"),
+      currentSelectedDate: moment(new Date().toISOString()).format("MMMM YYYY"),
     };
   },
   computed: {
@@ -84,7 +84,7 @@ export default {
       this.getTargetsData();
     },
     onDateChange(date) {
-      this.currentSelectedDate = moment(new Date(date)).format("MMMM YYYY");
+      this.currentSelectedDate = moment(date).format("MMMM YYYY");
     },
   },
   watch: {

@@ -18,7 +18,7 @@ export default {
         });
       });
       const currentMonthOrders = groupedValues.filter(
-        (el) => moment(new Date(el.orderDate)).format("MMMM YYYY") === this.date
+        (el) => moment(el.orderDate).format("MMMM YYYY") === this.date
       );
       return currentMonthOrders;
     },
