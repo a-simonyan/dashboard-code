@@ -57,7 +57,7 @@ export default {
   },
   data() {
     return {
-      currentSelectedDate: dayjs(new Date().toISOString()).format("MMMM YYYY"),
+      currentSelectedDate: dayjs(new Date()).format("MMMM YYYY").toString(),
     };
   },
   computed: {
@@ -83,7 +83,7 @@ export default {
       this.getTargetsData();
     },
     onDateChange(date) {
-      this.currentSelectedDate = dayjs(date, "MMMM YYYY").format("MMMM YYYY");
+      this.currentSelectedDate = dayjs(date).format("MMMM YYYY").toString();
     },
   },
   watch: {

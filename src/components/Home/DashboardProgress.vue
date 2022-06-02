@@ -51,7 +51,7 @@ export default {
     currentMonthTarget() {
       if (this.getTargetSuccessData) {
         return this.getTargetSuccessData.values.find((el) =>
-          el.includes(dayjs(this.date).format("MMMM"))
+          el.includes(dayjs(this.date).format("MMMM").toString())
         )[1];
       } else return "";
     },
