@@ -33,12 +33,12 @@ export default {
     return {
       refreshReheaderingSeconds: 60,
       reheaderingSecondsInterval: null,
-      currentDashboardDate: new Date().toISOString(),
+      currentDashboardDate: new Date(),
     };
   },
   computed: {
     currentDashboardFormattedDate() {
-      return dayjs(this.currentDashboardDate).format("MMMM YYYY");
+      return dayjs(this.currentDashboardDate).format("MMMM YYYY").toString();
     },
   },
   methods: {
@@ -52,18 +52,15 @@ export default {
     },
     onMonthChange(action) {
       if (action === "prev") {
-        this.currentDashboardDate = dayjs(
-          dayjs(new Date(this.currentDashboardFormattedDate)).subtract(
-            1,
-            "month"
-          )
-        ).format("MMMM YYYY");
+        this.currentDashboardDate = new Date(
+          dayjs(this.currentDashboardDate).subtract(1, "month")
+        );
       } else
-        this.currentDashboardDate = dayjs(
-          dayjs(new Date(this.currentDashboardFormattedDate)).add(1, "month")
-        ).format("MMMM YYYY");
+        this.currentDashboardDate = new Date(
+          dayjs(this.currentDashboardDate).add(1, "month")
+        );
 
-      this.$emit("dateChange", this.currentDashboardDate);
+      this.$emit("dateChange", this.currentDashboardFormattedDate);
     },
   },
   created() {
