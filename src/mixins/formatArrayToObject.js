@@ -34,12 +34,17 @@ export default {
       console.log(
         groupedValues.map((el) => {
           return new Date(
-            `${el.orderDate.split(".")[1]}-${el.orderDate.split(".")[0]}-${
+            `${el.orderDate.split(".")[1]}/${el.orderDate.split(".")[0]}/${
               el.orderDate.split(".")[2]
             }`
           )
         })
       );
+      console.log(groupedValues.map((el) => {
+        return `${el.orderDate.split(".")[1]}-${el.orderDate.split(".")[0]}-${
+          el.orderDate.split(".")[2]
+        }`
+      }))
       return currentMonthOrders;
     },
   },
