@@ -19,8 +19,8 @@ export default {
       });
       const currentMonthOrders = groupedValues.filter(
         (el) =>
-          new Date(dayjs(el.orderDate).format("MMMM YYYY")).toString() ===
-          new Date(dayjs(this.date).format("MMMM YYYY")).toString()
+          dayjs(new Date(el.orderDate)).format("MMMM YYYY").toString() ===
+          dayjs(new Date(this.date)).format("MMMM YYYY").toString()
       );
       return currentMonthOrders;
     },
