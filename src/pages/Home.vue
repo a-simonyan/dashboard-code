@@ -44,7 +44,8 @@ import OverlayLoader from "@/components/OverlayLoader";
 // Vuex
 import { mapActions, mapGetters } from "vuex";
 // Moment
-import moment from "moment";
+// import moment from "moment";
+import dayjs from 'dayjs'
 
 export default {
   name: "IndexPage",
@@ -58,7 +59,7 @@ export default {
   },
   data() {
     return {
-      currentSelectedDate: moment(new Date().toISOString()).format("MMMM YYYY"),
+      currentSelectedDate: dayjs(new Date().toISOString()).format("MMMM YYYY"),
     };
   },
   computed: {
@@ -84,7 +85,7 @@ export default {
       this.getTargetsData();
     },
     onDateChange(date) {
-      this.currentSelectedDate = moment(date).format("MMMM YYYY");
+      this.currentSelectedDate = dayjs(date).format("MMMM YYYY");
     },
   },
   watch: {

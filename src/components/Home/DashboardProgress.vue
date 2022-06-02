@@ -27,7 +27,8 @@
 </template>
 
 <script>
-import moment from "moment";
+// import moment from "moment";
+import dayjs from 'dayjs'
 // Vuex
 import { mapGetters } from "vuex";
 
@@ -51,7 +52,7 @@ export default {
     currentMonthTarget() {
       if (this.getTargetSuccessData) {
         return this.getTargetSuccessData.values.find((el) =>
-          el.includes(moment(this.date).format("MMMM"))
+          el.includes(dayjs(this.date).format("MMMM"))
         )[1];
       } else return "";
     },

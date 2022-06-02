@@ -1,4 +1,5 @@
-import moment from "moment";
+// import moment from "moment";
+import dayjs from 'dayjs';
 export default {
   methods: {
     formatOrders(data) {
@@ -18,7 +19,7 @@ export default {
         });
       });
       const currentMonthOrders = groupedValues.filter(
-        (el) => moment(el.orderDate).format("MMMM YYYY") === this.date
+        (el) => dayjs(el.orderDate).format("MMMM YYYY") === this.date
       );
       return currentMonthOrders;
     },
