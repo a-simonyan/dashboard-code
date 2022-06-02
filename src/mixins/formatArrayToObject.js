@@ -34,11 +34,9 @@ export default {
       console.log(
         groupedValues.map((el) => {
           return dayjs(
-            new Date(
-              `${el.orderDate.split(".")[1]}-${el.orderDate.split(".")[0]}-${
-                el.orderDate.split(".")[2]
-              }`
-            )
+            `${el.orderDate.split(".")[1]}-${el.orderDate.split(".")[0]}-${
+              el.orderDate.split(".")[2]
+            }`
           )
             .format("MM-YYYY")
             .toString();
