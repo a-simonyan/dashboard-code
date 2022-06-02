@@ -43,7 +43,6 @@ import DashboardTopProducts from "@/components/Home/DashboardTopProducts";
 import OverlayLoader from "@/components/OverlayLoader";
 // Vuex
 import { mapActions, mapGetters } from "vuex";
-import dayjs from "dayjs";
 
 export default {
   name: "IndexPage",
@@ -57,7 +56,7 @@ export default {
   },
   data() {
     return {
-      currentSelectedDate: dayjs(new Date()).format("MMMM YYYY").toString(),
+      currentSelectedDate: new Date(),
     };
   },
   computed: {
@@ -83,10 +82,7 @@ export default {
       this.getTargetsData();
     },
     onDateChange(date) {
-      console.log(date);
-      this.currentSelectedDate = dayjs(new Date(date))
-        .format("MMMM YYYY")
-        .toString();
+      this.currentSelectedDate = date;
     },
   },
   watch: {

@@ -60,7 +60,7 @@ export default {
           dayjs(this.currentDashboardDate).add(1, "month")
         );
 
-      this.$emit("dateChange", this.currentDashboardFormattedDate);
+      this.$emit("dateChange", this.currentDashboardDate);
     },
   },
   created() {
