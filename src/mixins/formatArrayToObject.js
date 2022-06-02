@@ -28,9 +28,10 @@ export default {
             )
           )
             .format("MM-YYYY")
-            .toString() ===
-          dayjs(this.date.toString()).format("MM-YYYY").toString()
+            .toString() === dayjs(this.date).format("MM-YYYY").toString()
       );
+      console.log(dayjs(this.date).format("MM-YYYY").toString());
+      console.log(groupedValues);
       return currentMonthOrders;
     },
   },
