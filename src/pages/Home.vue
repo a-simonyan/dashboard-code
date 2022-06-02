@@ -83,7 +83,9 @@ export default {
       this.getTargetsData();
     },
     onDateChange(date) {
-      this.currentSelectedDate = dayjs(date).format("MMMM YYYY").toString();
+      this.currentSelectedDate = dayjs(new Date(date))
+        .format("MMMM YYYY")
+        .toString();
     },
   },
   watch: {
