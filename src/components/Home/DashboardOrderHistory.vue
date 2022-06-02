@@ -50,7 +50,7 @@ export default {
   name: "DashboardOrderHistory",
   mixins: [formatArrayToObject],
   props: {
-    date: String,
+    date: Date,
   },
   data() {
     return {

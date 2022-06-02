@@ -45,7 +45,7 @@ export default {
   name: "DashboardTopProducts",
   mixins: [formatArrayToObject],
   props: {
-    date: String,
+    date: Date,
   },
   computed: {
     ...mapGetters("dashboard", ["getOrderSuccessData", "getTotalOrdersSum"]),

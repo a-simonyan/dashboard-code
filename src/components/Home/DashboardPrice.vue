@@ -10,7 +10,7 @@ export default {
   name: "DashboardPrice",
   mixins: [formatArrayToObject],
   props: {
-    date: String,
+    date: Date,
   },
   data() {
     return {

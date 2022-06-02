@@ -34,7 +34,7 @@ import { mapGetters } from "vuex";
 export default {
   name: "DashboardProgress",
   props: {
-    date: String,
+    date: Date,
   },
   data() {
     return {
