@@ -26,8 +26,7 @@
 </template>
 
 <script>
-// import moment from "moment";
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 export default {
   name: "DashboardHeader",
   data() {
@@ -54,12 +53,15 @@ export default {
     onMonthChange(action) {
       if (action === "prev") {
         this.currentDashboardDate = dayjs(
-          this.currentDashboardFormattedDate
-        ).subtract(1, "month");
+          dayjs(new Date(this.currentDashboardFormattedDate)).subtract(
+            1,
+            "month"
+          )
+        ).format("MMMM YYYY");
       } else
         this.currentDashboardDate = dayjs(
-          this.currentDashboardFormattedDate
-        ).add(1, "month");
+          dayjs(new Date(this.currentDashboardFormattedDate)).add(1, "month")
+        ).format("MMMM YYYY");
 
       this.$emit("dateChange", this.currentDashboardDate);
     },

@@ -27,8 +27,7 @@
 </template>
 
 <script>
-// import moment from "moment";
-import dayjs from 'dayjs'
+import dayjs from "dayjs";
 // Vuex
 import { mapGetters } from "vuex";
 
