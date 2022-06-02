@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+
 export default {
   methods: {
     formatOrders(data) {
@@ -19,8 +20,16 @@ export default {
       });
       const currentMonthOrders = groupedValues.filter(
         (el) =>
-          dayjs(new Date(el.orderDate)).format("MM-DD-YYYY").toString() ===
-          dayjs(new Date(this.date)).format("MM-DD-YYYY").toString()
+          dayjs(
+            new Date(
+              `${el.orderDate.split(".")[1]}-${el.orderDate.split(".")[0]}-${
+                el.orderDate.split(".")[2]
+              }`
+            )
+          )
+            .format("MM-YYYY")
+            .toString() ===
+          dayjs(this.date.toString()).format("MM-YYYY").toString()
       );
       return currentMonthOrders;
     },

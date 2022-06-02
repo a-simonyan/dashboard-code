@@ -17,7 +17,7 @@
       <tr class="separator" colspan="4"></tr>
       <tbody class="table-box__body">
         <tr
-          v-for="(item, index) in orderHistory"
+          v-for="(item, index) in latestOrders"
           :key="`order-row_${index}`"
           class="table-box__body--row"
           :class="{ selected: currentSelectedOrderNumber === item.orderNumber }"
@@ -68,7 +68,19 @@ export default {
     ...mapGetters("dashboard", ["getOrderSuccessData"]),
     latestOrders() {
       return [...this.orderHistory]
-        .sort((a, b) => new Date(b.orderDate) - new Date(a.orderDate))
+        .sort(
+          (a, b) =>
+            new Date(
+              `${b.orderDate.split(".")[1]}-${b.orderDate.split(".")[0]}-${
+                b.orderDate.split(".")[2]
+              }`
+            ) -
+            new Date(
+              `${a.orderDate.split(".")[1]}-${a.orderDate.split(".")[0]}-${
+                a.orderDate.split(".")[2]
+              }`
+            )
+        )
         .slice(0, 5);
     },
   },
@@ -97,10 +109,9 @@ export default {
       immediate: true,
       handler() {
         this.orderHistory = this.formatOrders(this.getOrderSuccessData.values);
-        if (this.orderHistory.length) {
-          this.currentSelectedOrderNumber = this.orderHistory[0].orderNumber;
-          this.setCurrentOrder(this.orderHistory[0]);
-        } else this.setCurrentOrder(null);
+        if (this.latestOrders.length) {
+          this.setCurrentOrderRow(this.latestOrders[0]);
+        } else this.setCurrentOrderRow(null);
       },
     },
   },
