@@ -71,12 +71,12 @@ export default {
         .sort(
           (a, b) =>
             new Date(
-              `${b.orderDate.split(".")[1]}-${b.orderDate.split(".")[0]}-${
+              `${b.orderDate.split(".")[1]}/${b.orderDate.split(".")[0]}/${
                 b.orderDate.split(".")[2]
               }`
             ) -
             new Date(
-              `${a.orderDate.split(".")[1]}-${a.orderDate.split(".")[0]}-${
+              `${a.orderDate.split(".")[1]}/${a.orderDate.split(".")[0]}/${
                 a.orderDate.split(".")[2]
               }`
             )

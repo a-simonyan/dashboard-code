@@ -22,7 +22,7 @@ export default {
         (el) =>
           dayjs(
             new Date(
-              `${el.orderDate.split(".")[1]}-${el.orderDate.split(".")[0]}-${
+              `${el.orderDate.split(".")[1]}/${el.orderDate.split(".")[0]}/${
                 el.orderDate.split(".")[2]
               }`
             )
@@ -30,21 +30,6 @@ export default {
             .format("MM-YYYY")
             .toString() === dayjs(this.date).format("MM-YYYY").toString()
       );
-      console.log(dayjs(this.date).format("MM-YYYY").toString());
-      console.log(
-        groupedValues.map((el) => {
-          return new Date(
-            `${el.orderDate.split(".")[1]}/${el.orderDate.split(".")[0]}/${
-              el.orderDate.split(".")[2]
-            }`
-          )
-        })
-      );
-      console.log(groupedValues.map((el) => {
-        return `${el.orderDate.split(".")[1]}-${el.orderDate.split(".")[0]}-${
-          el.orderDate.split(".")[2]
-        }`
-      }))
       return currentMonthOrders;
     },
   },
