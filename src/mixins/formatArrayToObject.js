@@ -31,7 +31,19 @@ export default {
             .toString() === dayjs(this.date).format("MM-YYYY").toString()
       );
       console.log(dayjs(this.date).format("MM-YYYY").toString());
-      console.log(currentMonthOrders);
+      console.log(
+        groupedValues.map((el) => {
+          return dayjs(
+            new Date(
+              `${el.orderDate.split(".")[1]}-${el.orderDate.split(".")[0]}-${
+                el.orderDate.split(".")[2]
+              }`
+            )
+          )
+            .format("MM-YYYY")
+            .toString();
+        })
+      );
       return currentMonthOrders;
     },
   },
